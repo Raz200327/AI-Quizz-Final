@@ -1,0 +1,80 @@
+
+
+    {%include "head.html"%}
+    <body id="page-top">
+
+
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                <span><i class="fa-solid fa-graduation-cap fa-9x spacing"></i></span>
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0" id="title-header-main">Quizz</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+
+                </div>
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0">Automated Quizzes - Powered by AI</p>
+            </div>
+        </header>
+
+
+        <!-- About Section-->
+        <section class="page-section about-me text-white mb-0" id="about">
+            <div class="container" style="width: 80%;">
+                <!-- About Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- About Section Content-->
+                <div class="row" style="text-align: center;">
+                    <div class="col-lg-12 ms-auto"><p class="lead">Quizz is a start-up that uses artificial intelligence to generate quizzes for students and teachers. With Quizz, you can easily create quizzes by inputting your University slides or raw text. This innovative tool saves time and effort for students, while providing engaging and interactive learning experiences. Whether you are a student looking to study more effectively or a teacher looking to create quizzes for your class, Quizz is the perfect solution. Try it out today and see how Quizz can enhance your learning and teaching experience.</p></div>
+                </div>
+                <!-- About Section Button-->
+
+            </div>
+        </section>
+        <!-- Contact Section-->
+        </div>
+
+        <section class="page-section about-me text-white mb-0" id="signup">
+            <div class="container" style="width: 80%;">
+                <!-- About Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase" style="color: #497174;">Get Started</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light" style="color: #497174;">
+                    <div class="divider-custom-line" style="color: #497174;"></div>
+                    <div><i class="fa-solid fa-graduation-cap fa-3x " style="color: #497174"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- About Section Content-->
+                <div class="row" style="text-align: center; color: #497174;">
+                    <div class="col-lg-12 ms-auto"><h2 class="calltoaction">Take your learning and teaching to the next level with Quizz.</h2>
+                        <p class="lead">Try Quizz today and see the benefits for yourself - whether you're a student or teacher, this innovative tool is the perfect solution for enhancing your learning and teaching experience.</p></div>
+                </div>
+                <!-- About Section Button-->
+                <div class="text-center mt-4">
+                    <a class="btn-xl btn" style="background-color: #EB6440; color: white; width: 200px;" href="{{url_for('signup')}}">
+                        Sign Up
+                    </a>
+                </div>
+                <div class="text-center mt-4">
+                    <a class="btn-xl btn" style="background-color: #497174; color: white; width: 200px;" href="{{url_for('login')}}">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer-->
+        {%include "footer.html"%}
+
+
+    </body>
+

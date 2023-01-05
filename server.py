@@ -16,7 +16,7 @@ import threading
 from flask import current_app
 from reset_password import reset_user_password
 import requests
-from lecture_slides import LectureSlides
+
 
 
 
@@ -253,10 +253,7 @@ def generate_quiz(lecture_slides, chapter, quiz_name, path, user):
                 lecture = DocExtract()
                 main_quiz = MainQuiz()
                 main_quiz.paragraph(lecture.docx_to_string(path=path))
-            else:
-                lecture = LectureSlides(lecture_slides)
-                main_quiz = MainQuiz()
-                main_quiz.paragraph(lecture.image_extract())
+            
 
 
         elif chapter != "":

@@ -1,0 +1,16 @@
+{%include "head.html"%}
+        <!-- Masthead-->
+        <header class="masthead text-white text-center">
+            <div class="container d-flex align-items-center flex-column quiz-answer-header">
+
+                <h1 class="answer">Correct!</h1><br><br>
+                <p class="answer-paragraph"><b>Answer:</b> {{correct_answer}}</p><br>
+                {%if (int(index) + 1) > len(quiz) - 1%}
+                    <a class="btn btn-primary" href="{{url_for('main_quiz', index=int(0), id=id)}}" style="color: #497174; margin-bottom: 30px;">Next</a>
+                {%else%}
+                    <a class="btn btn-primary quiz-button btn-lg" href="{{url_for('main_quiz', index=int(index) + 1, id=id)}}">Next</a>
+                {%endif%}
+             </div>
+        </header>
+
+{%include "footer.html"%}

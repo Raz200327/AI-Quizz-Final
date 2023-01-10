@@ -1,0 +1,30 @@
+{%include "head.html"%}
+        <!-- Masthead-->
+        <header class="masthead text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+
+                            <div class="card quiz-card">
+                                <div class="card-body">
+                                    {%if current_user.id == quiz_owner.user_id%}
+                                    <h5 class="card-title ques-num">Q-{{int(index) + 1}}
+                                        <a href="{{url_for('edit_quiz_question', id=quiz_database[int(index)].id, index=int(index))}}"><i class="fa-solid fa-pen-to-square fa-1x" style="margin-left: 20px;"></i></a>
+                                    </h5>
+                                    {%else%}
+                                    <h5 class="card-title ques-num-locked">Q-{{int(index) + 1}}</h5>
+                                    {%endif%}
+                                    <p class="card-text quiz-question">{{quiz_database[int(index)].formatted_quiz}}</p><br>
+                                    {%for a in quiz_database[int(index)].multiple_answers.split("@ ")%}
+
+                                    <a class="btn btn-primary btn-lg question" href="{{url_for('verify', user=a, index=int(index), quiz=quiz_database, id=id, quiz_owner=quiz_owner.public)}}">{{a}}</a><br>
+                                    {%endfor%}
+
+                                </div>
+                            </div>
+
+             </div>
+        </header>
+
+
+
+        <!-- Footer-->
+{%include "footer.html"%}

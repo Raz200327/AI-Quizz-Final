@@ -1,0 +1,71 @@
+
+
+    {%include "head.html"%}
+    <body id="page-top">
+
+
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                <span><i class="fa-solid fa-graduation-cap fa-9x spacing"></i></span>
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0" id="title-header-main">Admin</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+
+                </div>
+                <!-- Masthead Subheading-->
+
+            </div>
+        </header>
+
+
+        <!-- About Section-->
+
+            <div class="container quizzes">
+                <div class="row">
+                    <div class="col-sm-6 add-quiz">
+                         <div class="card" style="width: 100%; text-align: center;">
+                            <h1 class="subtitles">Users</h1>
+                            {%if users != []%}
+                                <ul class="list-group list-group-flush">
+                                    {%for i in users%}
+                                    <li class="list-group-item"><h2 class="quizz-title">{{i.name}}</h2></li>
+                                    {%endfor%}
+                                </ul>
+                            {%endif%}
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6" style="text-align: center;">
+                        <div class="card" style="width: 100%; text-align: center;">
+                            <h1 class="subtitles">All Quizzes</h1>
+                            {%if quizzes != []%}
+                                <ul class="list-group list-group-flush">
+                                    {%for i in quizzes%}
+
+                                    <li class="list-group-item"><h2 class="quizz-title">{{i.quiz_name}}</h2>
+                                    </li>
+                                    {%endfor%}
+
+                                </ul>
+                            {%endif%}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Contact Section-->
+
+
+
+
+        <!-- Footer-->
+        {%include "footer.html"%}
+
+
+    </body>
+

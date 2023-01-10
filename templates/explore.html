@@ -1,0 +1,90 @@
+
+
+    {%include "head.html"%}
+    <body id="page-top">
+
+
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                <span><i class="fa-solid fa-graduation-cap fa-9x spacing"></i></span>
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0" id="title-header-main">Community Quizzes</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+
+                </div>
+                <!-- Masthead Subheading-->
+
+            </div>
+        </header>
+
+
+        <!-- About Section-->
+
+            <div class="container quizzes">
+                <div class="row">
+                    <div class="col-sm-6 add-quiz">
+                        <div class="card" style="width: 100%; text-align: center;">
+                        <form method="post" action="{{url_for('explore')}}">
+                        <div class="input-group mb-3">
+
+                            <input type="text" class="form-control" name="searchterm" placeholder="Search Quiz" value="{{search}}">
+                                <div class="input-group-append">
+                                    <input class="input-group-text search" type="submit" value="Search">
+                                </div>
+                        </div>
+                            {%if results != []%}
+
+                            <ul class="list-group list-group-flush">
+                                {%for i in results%}
+                                <li class="list-group-item"><a class="btn-md btn" href="{{url_for('main_quiz', index=int(0), id=i.id)}}"><h2 class="quizz-title">{{i.quiz_name}}</h2></a>
+                                <i class="fa-solid fa-minus separator"></i><span class="name-tag">by {{db.session.query(users).get(i.user_id).name}}</span>
+                                    {%if i.user_id == current_user.id%}
+                                        <a class="edit-button" href="{{url_for('edit_quiz_title', id=i.id)}}"><i class="fa-solid fa-pen-to-square fa-xl"></i></a>
+                                        <a href="{{url_for('delete', id=i.id)}}"><i class="fa-solid fa-delete-left fa-xl"></i></a>
+                                    {%endif%}
+                                </li>
+                                {%endfor%}
+                            </ul>
+                            {%endif%}
+                        </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style="text-align: center;">
+                        <div class="card" style="width: 100%; text-align: center;">
+                            <h1 class="subtitles">Recent</h1>
+                            {%if quizzes != []%}
+                                <ul class="list-group list-group-flush">
+                                    {%for i in quizzes%}
+                                    {%if i.processed != 0%}
+                                    <li class="list-group-item"><a class="btn-md btn" href="{{url_for('main_quiz', index=int(0), id=i.id)}}"><h2 class="quizz-title">{{i.quiz_name}}</h2></a>
+                                       <i class="fa-solid fa-minus separator"></i><span class="name-tag">by {{db.session.query(users).get(i.user_id).name}}</span>
+                                        {%if i.user_id == current_user.id%}
+                                        <a class="edit-button" href="{{url_for('edit_quiz_title', id=i.id)}}"><i class="fa-solid fa-pen-to-square fa-xl"></i></a>
+                                        <a href="{{url_for('delete', id=i.id)}}"><i class="fa-solid fa-delete-left fa-xl"></i></a>
+                                        {%endif%}
+                                    </li>
+                                    {%endif%}
+                                    {%endfor%}
+
+                                </ul>
+                            {%endif%}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Contact Section-->
+
+
+
+
+        <!-- Footer-->
+        {%include "footer.html"%}
+
+
+    </body>
+

@@ -1,0 +1,83 @@
+
+
+{%include "head.html"%}
+{% import "bootstrap/wtf.html" as wtf %}
+<body>
+
+<section class="page-section" id="contact">
+            <div class="container" style="margin-top: 120px;">
+                <!-- Contact Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Create Quiz</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+
+                    <div><i class="fa-solid fa-graduation-cap fa-2x " style="color: #497174"></i></div>
+
+                </div>
+                <!-- Contact Section Form-->
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xl-7">
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+
+                        <form id="contactForm" method="post" action="{{url_for('quiz')}}" enctype="multipart/form-data">
+                            <!-- Name input-->
+                            {{ form.csrf_token }}
+                            <label class="signup-form-label">Quiz Name</label>
+                            <div class="form-floating mb-3">
+
+                                {{form.quiz_name(class_="form-control")}}
+
+                            </div>
+                            {% with messages = get_flashed_messages() %}
+                                {% if messages %}
+                                    <div class="flash-messages">
+                                        <ul>
+                                            {% for message in messages %}
+                                                <li>{{ message }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {% endif %}
+                            {% endwith %}
+
+                            <!-- Email address input-->
+                            <label class="signup-form-label">Text Chapter</label>
+                            <div class="form-floating mb-3">
+                                {{form.text_chapter(placeholder="Paste Text Here...", class_="form-control")}}
+                            </div>
+                            <div class="container d-flex flex-column" style="padding-right: 100px; margin: 0px; padding: 0px; padding-bottom: 20px; padding-top: 20px; color: #497174;">
+                                <h2 style="text-align: left;">or</h2>
+                            </div>
+                            <label class="signup-form-label">Lecture Slides</label>
+                            <div class="container d-flex flex-column" style="padding-right: 100px; margin: 0px; padding: 0px; padding-bottom: 20px; padding-top: 20px; color: #497174;">
+                                <p class="subtitle">Supported formats: PDF, DOCX</p>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" type="file" name="lecture-slides"/>
+                            </div>
+
+                            <label class="signup-form-label">Share Quiz</label>
+                            <div class="form-floating mb-3">
+                                {{form.share(class_="public")}}
+                            </div>
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+
+                            <!-- Submit Button-->
+                            <button class="btn btn-primary btn-xl" style="background-color: #EB6440; color: white; width: 200px; border-color: #EB6440;" id="submitButton" type="submit">Generate</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+{%include "footer.html"%}
+</body>
+

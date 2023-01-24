@@ -10,7 +10,7 @@ def notify_user(receiving_email, link, name, quiz_name):
         to_emails=receiving_email,
         subject="Your Quiz is Ready!",
         html_content=f"<h1>Your Quiz about {quiz_name} is Ready!</h1><h3>Hey {name},</h3><p>"
-                     f"Click to the link we sent you to go to your dashboard!</p><p>Let us know if you need any adjustments or if you're having trouble downloading it.</p>"
+                     f"Click to the link we sent you to go to your dashboard!</p><p>Let us know if you need any adjustments or if you're having trouble using it.</p>"
                      f"<p>Happy quizzing!</p>"
                      f"<br><h2><a href='https://quizz.com.au{link}' style='text-decoration: none;'>Start Quiz</a></h2>"
     )

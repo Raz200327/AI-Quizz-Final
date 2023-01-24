@@ -220,7 +220,6 @@ def reset_password(token, email):
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    print(current_user.quizzes[len(current_user.quizzes) - 1].id)
     all_questions = current_user.quizzes
     return render_template('dashboard.html', quiz=all_questions, int=int)
 

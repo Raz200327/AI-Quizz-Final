@@ -1,0 +1,91 @@
+
+
+    {%include "head.html"%}
+    <body id="page-top">
+
+
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                <span><i class="fa-solid fa-graduation-cap fa-9x spacing"></i></span>
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0" id="title-header-main">Pricing</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+
+                </div>
+                <!-- Masthead Subheading-->
+
+            </div>
+        </header>
+
+
+        <!-- About Section-->
+
+            <div class="container quizzes">
+                <div class="row">
+                    <div class="col-sm-4 add-quiz">
+                        <div class="cardv2">
+                            <div class="card-body">
+                                <h5 class="card-title price-title">Quizzer</h5>
+                                <h5 class="card-title">$10/month</h5>
+                                <ul class="card-text">
+                                    <li class="list-element"><span><i class="fa-solid fa-check check"></i></span>5000 word input per quiz</li>
+                                    <li class="list-element"><span><i class="fa-solid fa-check check"></i></span>50 quizzes with 10 questions each</li>
+                                    <li class="list-element"><span><i class="fa-solid fa-check check"></i></span>1hr of transcription</li>
+                                </ul>
+                                <form method="post" action="{{url_for('details', tier='1')}}">
+                                <input class="btn btn-primary" value="Get Started" type="submit">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="cardv2">
+                            <div class="card-body">
+                                <h5 class="card-title price-title">Quizmaster</h5>
+                                <h5 class="card-title">$30/month</h5>
+                                <ul class="card-text">
+                                    <li class="list-element"><span><i class="fa-solid fa-check check"></i></span>15000 word input per quiz</li>
+                                    <li class="list-element"><span><i class="fa-solid fa-check check"></i></span>150 quizzes with 10 questions each</li>
+                                    <li class="list-element"><span><i class="fa-solid fa-check check"></i></span>3hrs of transcription</li>
+                                </ul>
+                                <form method="post" action="{{url_for('details', tier='2')}}">
+                                <input class="btn btn-primary" value="Get Started" type="submit">
+                                </form>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="cardv2">
+                            <div class="card-body">
+                                <h5 class="card-title price-title">Quizzer Pro</h5>
+                                <h5 class="card-title">$90/month</h5>
+                                <ul class="card-text">
+                                    <li class="list-element"><span><i class="fa-solid fa-check check"></i></span>60000 word input per quiz</li>
+                                    <li class="list-element"><span><i class="fa-solid fa-check check"></i></span>600 quizzes with 10 questions each</li>
+                                    <li class="list-element"><span><i class="fa-solid fa-check check"></i></span>12hrs of transcription</li>
+                                </ul>
+                                <form method="post" action="{{url_for('details', tier='3')}}">
+                                <input class="btn btn-primary" value="Get Started" type="submit">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <!-- Contact Section-->
+
+
+
+
+        <!-- Footer-->
+        {%include "footer.html"%}
+
+
+    </body>
+

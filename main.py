@@ -115,7 +115,7 @@ class MainQuiz:
 
     def multiple_answers(self, questions):
 
-        openai.api_key = os.environ.get("OPENAIKEY")
+        openai.api_key = self.api_key
         question = f"Write 3 different hard incorrect answers using this answer below. Separate each answer with only an @ symbol and make each wrong answer similar length to the correct answer.\n\n{questions}\n\n"
         try:
             ai_text = openai.Completion.create(model="text-davinci-003", prompt=question, max_tokens=500,

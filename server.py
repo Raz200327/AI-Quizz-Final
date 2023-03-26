@@ -30,7 +30,7 @@ app.config["STRIPE_PUBLIC_KEY"] = "pk_live_uXasa2a0UpZgokhvwR5mGdIR"
 
 app.config["STRIPE_SECRET_KEY"] = "sk_live_nNPUKCUL7Y6AFk66ktgOvlVo"
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://doadmin:AVNS_QwcJ3JHRGC73WKMtGe2@db-postgresql-nyc1-73471-do-user-13191328-0.b.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://doadmin:AVNS_PeUE33JuAjcszH-scF3@db-postgresql-nyc1-50986-do-user-13191328-0.b.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 SITE_KEY = "6LdRxcwjAAAAAAaKZd-RxdlMxzBIBMR3lPDmvYd_"

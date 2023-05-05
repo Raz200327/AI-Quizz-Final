@@ -252,7 +252,7 @@ def signup():
                 "secret": SECRET_GOOGLE_KEY,
                 "response": request.form["g-recaptcha-response"],
             }
-            with requests.post(url="https://www.google.com/recaptcha/api/siteverify", params=parameters) as req:
+            with requests.post(url="http://www.google.com/recaptcha/api/siteverify", params=parameters) as req:
                 result = req.json()
 
             if result["success"] != True:

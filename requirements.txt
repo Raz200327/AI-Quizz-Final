@@ -47,7 +47,6 @@ networkx==2.8.8
 ninja==1.11.1
 numpy==1.24.2
 openai==0.27.2
-opencv-python-headless==4.5.4.60
 openpyxl==3.0.10
 packaging==22.0
 pandas==1.5.2

@@ -254,8 +254,8 @@ def signup():
             }
             with requests.post(url="http://www.google.com/recaptcha/api/siteverify", params=parameters) as req:
                 result = req.json()
-
-            if result["success"] != True:
+            print(result["success"])
+            if result["success"] != "true":
                 abort(401)
             else:
                 chosen_email = Users.query.filter_by(email=form.email.data).first()

@@ -252,10 +252,11 @@ def signup():
                 "secret": SECRET_GOOGLE_KEY,
                 "response": request.form["g-recaptcha-response"],
             }
+            print(parameters)
             with requests.post(url="http://www.google.com/recaptcha/api/siteverify", params=parameters) as req:
+                print(req.text)
                 result = req.json()
-            print(result["success"])
-            if result["success"] != "true":
+            if result["success"] != True:
                 abort(401)
             else:
                 chosen_email = Users.query.filter_by(email=form.email.data).first()

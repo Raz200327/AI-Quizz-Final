@@ -33,8 +33,8 @@ app.config["STRIPE_SECRET_KEY"] = "sk_live_nNPUKCUL7Y6AFk66ktgOvlVo"
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///quizz.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
-SITE_KEY = "6LdRxcwjAAAAAAaKZd-RxdlMxzBIBMR3lPDmvYd_"
-SECRET_GOOGLE_KEY = "6LdRxcwjAAAAABNDVY7E9pxhhRH97BMzydv5-VlQ"
+SITE_KEY = "6LfL_uIlAAAAADzs-H-WHNr-2LABGvJGZE9SumdB"
+SECRET_GOOGLE_KEY = "6LfL_uIlAAAAAGBZrhNbRGHRwWXOZUFsOAFzl_PA"
 
 db = SQLAlchemy(app)
 

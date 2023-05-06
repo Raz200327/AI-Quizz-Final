@@ -253,28 +253,22 @@ def signup():
                 "response": request.form["g-recaptcha-response"],
             }
             print(parameters)
-            with requests.post(url="http://www.google.com/recaptcha/api/siteverify", data=parameters) as req:
-                print(req.text)
-                result = req.json()
-            if result["success"] != True:
-                abort(401)
-            else:
-                chosen_email = Users.query.filter_by(email=form.email.data).first()
-                print(chosen_email)
-                if chosen_email == None:
-                    password = generate_password_hash(password=form.password.data, salt_length=8)
-                    new_user = Users(name=form.name.data,
-                                    email=form.email.data,
-                                    password=password,
-                                     api_key=form.api_key.data)
-                    db.session.add(new_user)
-                    db.session.commit()
-                    login_user(new_user)
+            chosen_email = Users.query.filter_by(email=form.email.data).first()
+            print(chosen_email)
+            if chosen_email == None:
+                password = generate_password_hash(password=form.password.data, salt_length=8)
+                new_user = Users(name=form.name.data,
+                                email=form.email.data,
+                                password=password,
+                                 api_key=form.api_key.data)
+                db.session.add(new_user)
+                db.session.commit()
+                login_user(new_user)
 
-                    return redirect(url_for('dashboard'))
-                else:
-                    flash("Email already exists")
-                    return redirect(url_for('login'))
+                return redirect(url_for('dashboard'))
+            else:
+                flash("Email already exists")
+                return redirect(url_for('login'))
 
     return render_template("signup.html", form=form, site_key=SITE_KEY)
 

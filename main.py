@@ -97,6 +97,7 @@ class MainQuiz:
 
         for question in self.answers:
             if question != [''] and question != [' '] and len(question) == 2:
+                print(question)
                 if question[1] != f"{self.answers.index(question)}: " and question[1] != f"{self.answers.index(question)}. " and question[1] != '' and question[1] != ' ':
                     item = self.remove_a_followed_by_number(question[1])
                     self.final_quiz[question[0][2:].strip().replace(":", "").replace(".", "")] = self.remove_a_followed_by_colon(item).replace(".", "").strip()

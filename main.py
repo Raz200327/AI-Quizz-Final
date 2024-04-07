@@ -65,14 +65,14 @@ class MainQuiz:
         for i in self.text_chunk:
             print(i)
             try:
-                self.quiz += self.generate_questions(paragraph=i).split("Q")
-                print(self.quiz)
+                self.quiz.append(self.generate_questions(paragraph=i).split("Q"))
+                
             except:
                 time.sleep(10)
                 continue
-
+        print("-------QUIZ----------")
         print(self.quiz)
-
+        print("End of Quiz")
         if self.quiz == []:
             return "FAILED"
         with app.app_context():
@@ -95,10 +95,12 @@ class MainQuiz:
         self.final_quiz = {}
 
         print(self.answers)
-
+        
         for question in self.answers:
             if question != [''] and question != [' '] and len(question) == 2:
+                print("----Question---------")
                 print(question)
+                print("End of Question")
                 if question[1] != f"{self.answers.index(question)}: " and question[1] != f"{self.answers.index(question)}. " and question[1] != '' and question[1] != ' ':
                     item = self.remove_a_followed_by_number(question[1])
                     self.final_quiz[question[0][2:].strip().replace(":", "").replace(".", "")] = self.remove_a_followed_by_colon(item).replace(".", "").strip()

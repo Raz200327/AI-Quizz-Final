@@ -71,6 +71,7 @@ class MainQuiz:
                 time.sleep(10)
                 continue
 
+        print(self.quiz)
 
         if self.quiz == []:
             return "FAILED"

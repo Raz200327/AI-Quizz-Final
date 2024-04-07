@@ -1,8 +1,10 @@
 import os
-import openai
 import random
 import re
 import time
+
+from openai import OpenAI
+
 
 class MainQuiz:
 
@@ -48,11 +50,13 @@ class MainQuiz:
 
 
     def generate_questions(self, paragraph):
-
-        openai.api_key = self.api_key
+        client = OpenAI(api_key=self.api_key)
+        
         question = f"Write {self.quiz_length} short quiz questions from only the lesson transcript below with simple answers and format the quiz with the Q and A separated by an @ symbol:\n\n{paragraph}\n\n"
-        quiz_questions = openai.Completion.create(model="text-davinci-003", prompt=question, max_tokens=2000, temperature=0)
-        return quiz_questions["choices"][0]["text"].replace("\n", "")
+        quiz_questions = client.chat.completions.create(
+                          model="gpt-3.5-turbo",
+                          messages=[{"role": "system", "content": question}], max_tokens=2000, temperature=0)
+        return quiz_questions.choices[0].message.content.replace("\n", "")
 
 
     def format_quiz(self, db, QuizNames, new_quiz_name, app):
@@ -115,11 +119,13 @@ class MainQuiz:
 
     def multiple_answers(self, questions):
 
-        openai.api_key = self.api_key
+        client = OpenAI(api_key=self.api_key)
         question = f"Write 3 different hard incorrect answers using this answer below. Separate each answer with only an @ symbol and make each wrong answer similar length to the correct answer.\n\n{questions}\n\n"
         try:
-            ai_text = openai.Completion.create(model="text-davinci-003", prompt=question, max_tokens=500,
-                                                            temperature=0)["choices"][0]["text"].split("@")
+            ai_text = client.chat.completions.create(
+                            model="gpt-3.5-turbo",
+                            messages=[{"role": "system", "content": question}], max_tokens=1000, temperature=0).choices[0].message.content.split("@")
+            
         except:
             ai_text = "Error Occurred"
 

@@ -65,7 +65,7 @@ class MainQuiz:
         for i in self.text_chunk:
             print(i)
             try:
-                self.quiz.append(self.generate_questions(paragraph=i).split("Q"))
+                self.quiz += self.generate_questions(paragraph=i).split("Q")
                 
             except:
                 time.sleep(10)

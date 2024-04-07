@@ -52,7 +52,7 @@ class MainQuiz:
     def generate_questions(self, paragraph):
         client = OpenAI(api_key=self.api_key)
         
-        question = f"Write {self.quiz_length} short quiz questions from only the lesson transcript below with simple answers and format the quiz with the Q and A separated by an @ symbol:\n\n{paragraph}\n\n"
+        question = f"Write {self.quiz_length} short quiz questions from only the lesson transcript below with simple answers and format the quiz with the Q and A separated by an @ symbol. Example: 'Q When did WW2 start A September 1939@ Q What colour is the sky A Blue' Transcript:\n\n{paragraph}\n\n"
         quiz_questions = client.chat.completions.create(
                           model="gpt-3.5-turbo",
                           messages=[{"role": "system", "content": question}], max_tokens=2000, temperature=0)
@@ -94,7 +94,6 @@ class MainQuiz:
 
         self.final_quiz = {}
 
-        print(self.answers)
         
         for question in self.answers:
             if question != [''] and question != [' '] and len(question) == 2:

@@ -94,7 +94,8 @@ class MainQuiz:
 
         self.final_quiz = {}
 
-        
+        print("------------Answers-----------")
+        print(self.answers)
         for question in self.answers:
             if question != [''] and question != [' '] and len(question) == 2:
                 print("----Question---------")

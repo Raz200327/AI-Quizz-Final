@@ -105,7 +105,7 @@ class MainQuiz:
                     item = self.remove_a_followed_by_number(question[1])
                     print(item)
                     print(question[0][1:len(question[0])-1].strip().replace(":", "").replace(".", ""))
-                    self.final_quiz[question[0][2:].strip().replace(":", "").replace(".", "")] = self.remove_a_followed_by_colon(item).replace(".", "").strip()
+                    self.final_quiz[question[0][1:len(question[0])-1].strip().replace(":", "").replace(".", "")] = self.remove_a_followed_by_colon(item).replace(".", "").strip()
 
         with app.app_context():
             db.session.query(QuizNames).filter_by(id=new_quiz_name.id).first().func_prog = 80
